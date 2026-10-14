@@ -1,0 +1,6 @@
+{
+  "name": "SEEPORA — Smart Water Pipeline Leakage Detection",
+  "description": "Scientific research platform and interactive digital twin demonstrating horizontal sensor-strip water pipeline leakage detection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
