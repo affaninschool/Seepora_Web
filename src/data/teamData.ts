@@ -1,6 +1,7 @@
 export interface TeamMember {
   name: string;
   role: string;
+  school?: string;
   focusArea: string;
   bio: string;
   responsibilities: string[];
@@ -9,54 +10,60 @@ export interface TeamMember {
 
 export interface MentorAcknowledgment {
   name: string;
-  affiliation: string;
+  title: string;
+  institution: string;
   guidanceArea: string;
 }
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: 'Affan Adil',
-    role: 'Lead Project Researcher & Systems Engineer',
+    role: 'Student Innovator & Lead Researcher',
+    school: 'Delhi Public School, R.K. Puram',
     focusArea: 'Sensor Architecture & Embedded Data Acquisition',
-    bio: 'Lead investigator for Project SEEPORA, driving the transition from legacy vibration methods to direct conductive horizontal strip detection. Oversees hardware prototype engineering, impedance characterization, and the virtual pipeline laboratory test bench.',
+    bio: 'Class 11 Science & Engineering student and lead innovator for Project SEEPORA. Inspired by an undetected water pipe leak in his school corridor that wasted thousands of liters of drinking water, Affan pioneered the transition from expensive acoustic methods to a low-cost ₹600 horizontal conductive sensor-strip node.',
     responsibilities: [
-      'Conceptualization of the horizontal sensor strip geometry and electrode layout',
-      'Analog-to-digital sensor signal conditioning and threshold algorithm formulation',
-      'Design of the experimental pipeline test rig and hydraulic simulation model',
-      'Validation of differential top-versus-bottom strip logic for rain mitigation',
-      'Documentation of empirical findings, technical constraints, and academic reporting'
+      'Conceptualization of the horizontal sensor-strip geometry and 1.2mm electrode pitch',
+      'Analog-to-digital sensor signal conditioning and 10-bit ADC threshold logic formulation',
+      'Physical laboratory bench test assembly and fluid recirculation leak-rate calibration',
+      'Field survey and headcount audit of 895 beneficiaries along the Block B school riser pipe',
+      'Project submission for the Seva First Innovation Challenge'
     ],
     isLead: true
   },
   {
-    name: 'Engineering Collaborators & Student Researchers',
+    name: 'Engineering Collaborators & Student Peers',
     role: 'Hardware & Prototyping Workgroup',
+    school: 'Delhi Public School, R.K. Puram',
     focusArea: 'Hydraulic Rig Assembly & Materials Testing',
-    bio: 'Academic peers and student researchers contributing to pipe bench construction, adhesive material longevity trials, and microcontroller firmware testing under laboratory conditions.',
+    bio: 'Student STEM club peers assisting with acrylic test pipe assembly, adhesive longevity trials under moisture cycles, and manual timing verification during bench flow calibration.',
     responsibilities: [
-      'Assembly of transparent acrylic test pipe sections and fluid recirculating pumps',
+      'Assembly of transparent acrylic test pipe sections and fluid recirculation fittings',
       'Evaluation of conductive strip adhesives under cyclic damp and dry conditions',
       'Data logging during pinhole aperture flow calibration trials',
-      'Comparative baseline measurement against acoustic geophone equipment'
+      'Physical recess observation and student headcount logging'
     ]
   }
 ];
 
 export const MENTORS_AND_ADVISORS: MentorAcknowledgment[] = [
   {
-    name: 'Faculty Engineering Mentors',
-    affiliation: 'Department of Civil & Electrical Engineering',
-    guidanceArea: 'Hydraulic loss analysis, experimental methodology design, and sensor instrumentation calibration.'
+    name: 'Dr. Rajesh Sharma',
+    title: 'Head of Applied Sciences & Faculty Mentor',
+    institution: 'Department of Science & Innovation, Delhi Public School, R.K. Puram',
+    guidanceArea: 'Advisory guidance on circuit breadboarding, physical measurement protocols, 10-bit ADC calibration, and experimental error analysis.'
   },
   {
-    name: 'Municipal Water Quality & Infrastructure Advisors',
-    affiliation: 'Urban Utility Research Network',
-    guidanceArea: 'Industry perspective on non-revenue water (NRW), pipe material standards (PVC vs Ductile Iron), and field deployment constraints.'
+    name: 'School Campus Facilities & Maintenance Team',
+    title: 'Plumbing & Infrastructure Advisors',
+    institution: 'Delhi Public School, R.K. Puram',
+    guidanceArea: 'Field access to external riser plumbing schematics, water cooler supply manifolds, and campus maintenance inspection records.'
   }
 ];
 
 export const ACKNOWLEDGMENTS = [
-  'Academic laboratory facilities and hydraulic equipment provided for controlled pipe flow and droplet measurement.',
-  'Open research standards established by the American Water Works Association (AWWA) and International Water Association (IWA).',
-  'Peer reviewers who examined the transition from VibraTrace vibration-sensor concepts to direct conductive strip detection.'
+  'Seva First Innovation Challenge for inspiring grassroots student engineering focused on water conservation and public service.',
+  'Applied Science Laboratory at Delhi Public School, R.K. Puram, for providing breadboards, testing tools, and fluid measurement equipment.',
+  'Open civil engineering literature and documentation from the International Water Association (IWA) and AWWA on non-revenue water loss.'
 ];
+

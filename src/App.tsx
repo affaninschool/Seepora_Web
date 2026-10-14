@@ -9,11 +9,14 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Preloader } from './components/Preloader';
 import { HomeView } from './pages/HomeView';
+import { HardwareView } from './pages/HardwareView';
+import { CostView } from './pages/CostView';
+import { PilotView } from './pages/PilotView';
 import { HowItWorksView } from './pages/HowItWorksView';
 import { DashboardView } from './pages/DashboardView';
 import { InteractiveLabView } from './pages/InteractiveLabView';
 import { ResearchView } from './pages/ResearchView';
-import { TeamView } from './pages/TeamView';
+import { AboutView } from './pages/AboutView';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<PageTab>('home');
@@ -21,9 +24,22 @@ export default function App() {
 
   // Sync hash routing if present
   useEffect(() => {
+    const validTabs: PageTab[] = [
+      'home',
+      'hardware',
+      'cost',
+      'pilot',
+      'research',
+      'lab',
+      'dashboard',
+      'about',
+      'team',
+      'how-it-works'
+    ];
+
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '') as PageTab;
-      if (['home', 'how-it-works', 'dashboard', 'lab', 'research', 'team'].includes(hash)) {
+      if (validTabs.includes(hash)) {
         setActiveTab(hash);
       }
     };
@@ -53,11 +69,16 @@ export default function App() {
 
         <main className="flex-1">
           {activeTab === 'home' && <HomeView onTabChange={handleTabChange} />}
+          {activeTab === 'hardware' && <HardwareView />}
+          {activeTab === 'cost' && <CostView />}
+          {activeTab === 'pilot' && <PilotView />}
           {activeTab === 'how-it-works' && <HowItWorksView />}
           {activeTab === 'dashboard' && <DashboardView />}
           {activeTab === 'lab' && <InteractiveLabView />}
           {activeTab === 'research' && <ResearchView />}
-          {activeTab === 'team' && <TeamView />}
+          {(activeTab === 'about' || activeTab === 'team') && (
+            <AboutView onTabChange={handleTabChange} />
+          )}
         </main>
 
         <Footer onTabChange={handleTabChange} />

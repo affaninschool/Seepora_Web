@@ -1,4 +1,14 @@
-export type PageTab = 'home' | 'how-it-works' | 'dashboard' | 'lab' | 'research' | 'team';
+export type PageTab =
+  | 'home'
+  | 'hardware'
+  | 'cost'
+  | 'pilot'
+  | 'lab'
+  | 'dashboard'
+  | 'research'
+  | 'about'
+  | 'how-it-works'
+  | 'team';
 
 export interface TelemetryPoint {
   timestamp: string;
@@ -19,26 +29,36 @@ export interface IncidentEvent {
   source: 'SIMULATED' | 'HARDWARE';
 }
 
-export interface SimulationParams {
-  flowRate: number; // L/min (0 - 100)
-  pressure: number; // bar (0.5 - 8.0)
-  crackSize: number; // micrometers (0 - 500)
-  externalRain: number; // % (0 - 100)
-  stripGain: number; // multiplier (0.5 - 2.0)
-  sensorPosition: 'bottom' | 'top' | 'dual';
+export interface CostItem {
+  id: number;
+  component: string;
+  specification: string;
+  qty: number;
+  unitPriceInr: number;
+  subtotalInr: number;
+  purpose: string;
 }
 
-export interface SimulationResult {
-  leakRateLPerHour: number;
-  accumulatedWaterMl: number;
-  stripWettingPercent: number;
-  electricalResistanceKOhms: number;
-  sensorVoltage: number;
-  conductanceMicroSiemens: number;
-  classification: 'NOMINAL' | 'INTERNAL_LEAK' | 'RAIN_EXPOSURE' | 'CRITICAL_FAILURE';
-  confidenceScore: number;
-  topStripResistanceKOhms?: number;
-  differentialAnalysis: string;
+export interface MeasuredReading {
+  condition: string;
+  liquidVolumeMl: number;
+  adcRaw: number; // 0 - 1023
+  sensorVoltage: number; // Volts
+  resistanceKOhms: number;
+  detectionLatencySec: string;
+  alertTriggered: boolean;
+  notes: string;
+}
+
+export interface PlannedTrial {
+  trialId: string;
+  leakPosition: string;
+  dripRateMlSec: number;
+  trialsRun: number;
+  detectedCount: number;
+  detectionRatePercent: number;
+  falseAlarmRatePercent: number;
+  meanDetectionTimeSec: number;
 }
 
 export interface ResearchProblem {

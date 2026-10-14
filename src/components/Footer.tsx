@@ -1,7 +1,8 @@
 import React from 'react';
 import { PageTab } from '../types';
-import { ExternalLink, ShieldAlert, Cpu } from 'lucide-react';
+import { ShieldAlert, Cpu, Award } from 'lucide-react';
 import { SeeporaLogo } from './SeeporaLogo';
+import { PROJECT_METADATA } from '../data/projectData';
 
 interface FooterProps {
   onTabChange: (tab: PageTab) => void;
@@ -13,16 +14,23 @@ export const Footer: React.FC<FooterProps> = ({ onTabChange }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           {/* Brand & mission */}
-          <div className="md:col-span-2 space-y-3">
+          <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
               <SeeporaLogo className="w-8 h-8 shrink-0" />
               <span className="text-lg font-bold tracking-tight text-white">SEEPORA</span>
             </div>
+
+            {/* Official Badge in Footer */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/80 border border-amber-500/60 text-amber-300 text-xs font-semibold">
+              <Award className="w-4 h-4 text-amber-400 shrink-0" />
+              <span>Seva First Innovation Challenge Official Entry</span>
+            </div>
+
             <p className="text-xs text-slate-300 font-medium">
               Detect Leaks. Protect Every Drop.
             </p>
             <p className="text-xs text-slate-400 leading-relaxed max-w-md">
-              An engineering research project exploring horizontal conductive sensor-strip methods for localized subterranean water pipeline leakage detection. Moving beyond conventional acoustic and vibration sensors to direct liquid conductivity.
+              A student engineering research project exploring low-cost, surface-mounted rainwater sensor-strip nodes for localized water pipeline leak detection. Developed by Affan Adil under the mentorship of Dr. Rajesh Sharma at Delhi Public School, R.K. Puram.
             </p>
           </div>
 
@@ -35,49 +43,65 @@ export const Footer: React.FC<FooterProps> = ({ onTabChange }) => {
               <li>
                 <button
                   onClick={() => onTabChange('home')}
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
                   Home & Overview
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onTabChange('how-it-works')}
-                  className="hover:text-white transition-colors"
+                  onClick={() => onTabChange('hardware')}
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
-                  How It Works (Principles)
+                  Hardware & Lab Evidence
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onTabChange('dashboard')}
-                  className="hover:text-white transition-colors"
+                  onClick={() => onTabChange('cost')}
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Live Monitoring Dashboard
+                  ₹600 Itemised Cost BOM
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onTabChange('pilot')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  School Pilot Deployment Plan
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onTabChange('research')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Research & Trials Matrix
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onTabChange('lab')}
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
                   Interactive Pipeline Lab
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onTabChange('research')}
-                  className="hover:text-white transition-colors"
+                  onClick={() => onTabChange('dashboard')}
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Research & 7 Problems
+                  Live Monitoring Dashboard
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onTabChange('team')}
-                  className="hover:text-white transition-colors"
+                  onClick={() => onTabChange('about')}
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Team Seepora (Affan Adil)
+                  About (Affan Adil & Mentor)
                 </button>
               </li>
             </ul>
@@ -90,24 +114,25 @@ export const Footer: React.FC<FooterProps> = ({ onTabChange }) => {
               <span>Scientific Disclosure</span>
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Laboratory prototype and virtual simulations represent ongoing empirical exploration. Non-connected telemetry is simulated via hydraulic conductivity equations. No unverified claims of field certification are made.
+              {PROJECT_METADATA.statusLine}
+            </p>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              The sensor shows surface electrolytic wetness, not a confirmed interior pipe burst. Contextual classification is required before municipal pipeline shutoff.
             </p>
             <div className="text-xs text-slate-500 flex items-center gap-2 pt-1">
               <Cpu className="w-3 h-3 text-slate-400" />
-              <span>Concept: Rainwater-strip sensor array</span>
+              <span>Hardware: ESP8266 + FC-37 Interdigitated Strip</span>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Project SEEPORA. Lead Researcher: Affan Adil.</p>
-          <div className="flex items-center gap-4 text-slate-400">
-            <span>Academic Research Project</span>
+          <p>© {new Date().getFullYear()} Project SEEPORA. Affan Adil · Delhi Public School, R.K. Puram.</p>
+          <div className="flex items-center gap-3 text-slate-400">
+            <span>Faculty Mentor: Dr. Rajesh Sharma</span>
             <span>·</span>
-            <span>Fluid Instrumentation Lab</span>
-            <span>·</span>
-            <span>Hardware Simulation v12</span>
+            <span className="text-amber-400">Seva First Innovation Challenge</span>
           </div>
         </div>
       </div>

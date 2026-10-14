@@ -14,9 +14,15 @@ import {
   UserCheck,
   CheckCircle2,
   Sliders,
-  HelpCircle
+  HelpCircle,
+  Award,
+  Cpu,
+  IndianRupee,
+  MapPin,
+  Quote
 } from 'lucide-react';
 import { SeeporaLogo } from '../components/SeeporaLogo';
+import { PROJECT_METADATA } from '../data/projectData';
 
 interface HomeViewProps {
   onTabChange: (tab: PageTab) => void;
@@ -24,18 +30,33 @@ interface HomeViewProps {
 
 export const HomeView: React.FC<HomeViewProps> = ({ onTabChange }) => {
   return (
-    <div className="space-y-16 py-8 sm:py-12">
+    <div className="space-y-16 py-6 sm:py-10">
+      {/* 0. Visible Status Line (Prompt Mandatory) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-slate-900 text-slate-200 px-4 py-2.5 rounded-xl border border-slate-800 text-xs font-mono flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-xs">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+            <span className="text-white font-medium">Status: Prototype in progress; simulation is illustrative. Physical bench trials underway.</span>
+          </div>
+          <div className="flex items-center gap-2 text-cyan-400 text-[11px]">
+            <span>Hardware Bench V12</span>
+            <span>·</span>
+            <span>FC-37 Tested</span>
+          </div>
+        </div>
+      </div>
+
       {/* 1. Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
           {/* Left Column: Headline and Call to action */}
-          <div className="lg:col-span-6 flex flex-col justify-center space-y-6">
-            <div className="flex items-center gap-3">
-              <SeeporaLogo className="w-11 h-11 shrink-0" />
-              <div className="flex items-center gap-2 text-xs font-semibold text-blue-700 tracking-wide uppercase">
-                <span>Engineering Research Project</span>
-                <span aria-hidden="true">·</span>
-                <span>Hardware Concept V12</span>
+          <div className="lg:col-span-6 flex flex-col justify-center space-y-5">
+            <div className="flex flex-wrap items-center gap-3">
+              <SeeporaLogo className="w-10 h-10 shrink-0" />
+              {/* Seva First Innovation Challenge Badge (Prompt Mandatory) */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-semibold shadow-xs">
+                <Award className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <span>Seva First Innovation Challenge Entry</span>
               </div>
             </div>
 
@@ -44,8 +65,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ onTabChange }) => {
                 Detect Leaks. <br />
                 <span className="text-blue-600">Protect Every Drop.</span>
               </h1>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                SEEPORA is a smart water pipeline leakage detection research platform. We explore a horizontal sensor-strip approach that bypasses acoustic limitations to catch subterranean pipeline seepage the instant water escapes.
+              {/* One Clear Sentence on what SEEPORA is (Prompt Mandatory) */}
+              <p className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed bg-blue-50/60 p-3.5 rounded-xl border border-blue-100">
+                {PROJECT_METADATA.oneSentenceSummary}
               </p>
             </div>
 
@@ -53,11 +75,13 @@ export const HomeView: React.FC<HomeViewProps> = ({ onTabChange }) => {
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-slate-500 font-medium pt-1 border-t border-slate-200">
               <span className="text-slate-800 font-semibold">Direct Conductance</span>
               <span aria-hidden="true">·</span>
-              <span>Gravity-Aided Invert Strip</span>
+              <span>1 Invert Strip on Rig</span>
               <span aria-hidden="true">·</span>
-              <span>Plastic (PVC/PE) & Iron Compatible</span>
+              <span>₹600 / Joint</span>
               <span aria-hidden="true">·</span>
-              <span>Zero Acoustic Interference</span>
+              <span>895 Campus Beneficiaries</span>
+              <span aria-hidden="true">·</span>
+              <span>Zero Acoustic Muffling</span>
             </div>
 
             {/* CTAs */}
@@ -102,6 +126,79 @@ export const HomeView: React.FC<HomeViewProps> = ({ onTabChange }) => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 1.5 The Real School Problem in Affan’s Words (Prompt Mandatory) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-2xl p-6 sm:p-10 border border-blue-800 shadow-md space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-blue-800/80 pb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+                <Quote className="w-4 h-4" />
+              </div>
+              <div>
+                <span className="text-xs font-mono text-cyan-300 font-semibold uppercase tracking-wider">
+                  Origin Story & Campus Problem
+                </span>
+                <h2 className="text-lg sm:text-xl font-bold text-white">
+                  The Real School Problem in Affan’s Words
+                </h2>
+              </div>
+            </div>
+
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-800/60 border border-blue-700 text-cyan-300 text-xs font-mono">
+              <Award className="w-3.5 h-3.5 text-amber-400" />
+              <span>Seva First Innovation Challenge</span>
+            </div>
+          </div>
+
+          <blockquote className="text-sm sm:text-base text-slate-200 leading-relaxed font-sans italic border-l-2 border-cyan-400 pl-4 sm:pl-6 my-2">
+            "{PROJECT_METADATA.author.quote}"
+          </blockquote>
+
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-blue-800/80 text-xs">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center font-bold text-white text-sm">
+                AA
+              </div>
+              <div>
+                <div className="font-bold text-white">{PROJECT_METADATA.author.name}</div>
+                <div className="text-slate-300">{PROJECT_METADATA.author.role} · {PROJECT_METADATA.author.school}</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-slate-300">
+              <span>Faculty Mentor:</span>
+              <strong className="text-white">{PROJECT_METADATA.mentor.name}</strong>
+              <span className="text-slate-400">({PROJECT_METADATA.mentor.title})</span>
+            </div>
+          </div>
+
+          {/* Quick Action Pathways to New Dedicated Sections */}
+          <div className="pt-2 flex flex-wrap items-center gap-3">
+            <button
+              onClick={() => onTabChange('hardware')}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-colors cursor-pointer"
+            >
+              <Cpu className="w-3.5 h-3.5" />
+              <span>View Hardware & Sensor Module</span>
+            </button>
+            <button
+              onClick={() => onTabChange('cost')}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors cursor-pointer"
+            >
+              <IndianRupee className="w-3.5 h-3.5 text-emerald-400" />
+              <span>₹600 Itemised Cost Table</span>
+            </button>
+            <button
+              onClick={() => onTabChange('pilot')}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors cursor-pointer"
+            >
+              <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+              <span>School Pilot & 895 Beneficiaries</span>
+            </button>
           </div>
         </div>
       </section>
@@ -351,18 +448,18 @@ export const HomeView: React.FC<HomeViewProps> = ({ onTabChange }) => {
               <span>Academic Engineering</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
-              Led by Affan Adil & Engineering Collaborators
+              Affan Adil & Faculty Mentorship (Delhi Public School, R.K. Puram)
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Project SEEPORA is developed by Affan Adil, focusing on sensor strip geometry, microcontroller ADC acquisition, and hydrodynamic test bench modeling to protect freshwater resources.
+              SEEPORA is a student engineering initiative developed by Affan Adil under the mentorship of Dr. Rajesh Sharma, Head of Applied Sciences. Built for the Seva First Innovation Challenge to solve real campus water leakage.
             </p>
           </div>
           <button
-            onClick={() => onTabChange('team')}
+            onClick={() => onTabChange('about')}
             className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors shrink-0 cursor-pointer"
           >
             <UserCheck className="w-4 h-4 text-blue-600" />
-            <span>Meet Team Seepora</span>
+            <span>About Affan & Mentorship</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
