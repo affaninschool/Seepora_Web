@@ -16,6 +16,7 @@ import {
   Sliders,
   HelpCircle
 } from 'lucide-react';
+import { SeeporaLogo } from '../components/SeeporaLogo';
 
 interface HomeViewProps {
   onTabChange: (tab: PageTab) => void;
@@ -29,10 +30,13 @@ export const HomeView: React.FC<HomeViewProps> = ({ onTabChange }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
           {/* Left Column: Headline and Call to action */}
           <div className="lg:col-span-6 flex flex-col justify-center space-y-6">
-            <div className="flex items-center gap-2 text-xs font-semibold text-blue-700 tracking-wide uppercase">
-              <span>Engineering Research Project</span>
-              <span aria-hidden="true">·</span>
-              <span>Hardware Concept V12</span>
+            <div className="flex items-center gap-3">
+              <SeeporaLogo className="w-11 h-11 shrink-0" />
+              <div className="flex items-center gap-2 text-xs font-semibold text-blue-700 tracking-wide uppercase">
+                <span>Engineering Research Project</span>
+                <span aria-hidden="true">·</span>
+                <span>Hardware Concept V12</span>
+              </div>
             </div>
 
             <div className="space-y-3">

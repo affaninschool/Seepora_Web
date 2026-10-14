@@ -8,7 +8,6 @@ import { PageTab } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Preloader } from './components/Preloader';
-import { CustomCursor } from './components/CustomCursor';
 import { HomeView } from './pages/HomeView';
 import { HowItWorksView } from './pages/HowItWorksView';
 import { DashboardView } from './pages/DashboardView';
@@ -45,9 +44,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      {/* Precision Scientific Custom Cursor */}
-      <CustomCursor />
-
       {/* Creative Engineering Preloader */}
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
 

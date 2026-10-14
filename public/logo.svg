@@ -1,0 +1,56 @@
+<svg viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sensorGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <linearGradient id="sensorTrackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#14808c" />
+      <stop offset="45%" stopColor="#2dd4bf" />
+      <stop offset="55%" stopColor="#a5f3fc" />
+      <stop offset="100%" stopColor="#67e8f9" />
+    </linearGradient>
+    <linearGradient id="dropletTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#168b98" />
+      <stop offset="100%" stopColor="#0d6c76" />
+    </linearGradient>
+  </defs>
+
+  <!-- Pipe Fluid Shading -->
+  <rect x="36" y="94" width="168" height="20" fill="#E2E8F0" />
+
+  <!-- Pipe Contour Lines -->
+  <line x1="44" y1="70" x2="196" y2="70" stroke="#0F2027" stroke-width="7" stroke-linecap="round" />
+  <line x1="44" y1="120" x2="196" y2="120" stroke="#0F2027" stroke-width="7" stroke-linecap="round" />
+
+  <!-- Left Flange [ -->
+  <path d="M 44 64 L 32 64 L 32 126 L 44 126" stroke="#0F2027" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <line x1="44" y1="64" x2="44" y2="72" stroke="#0F2027" stroke-width="6" stroke-linecap="round" />
+  <line x1="44" y1="118" x2="44" y2="126" stroke="#0F2027" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Right Flange ] -->
+  <path d="M 196 64 L 208 64 L 208 126 L 196 126" stroke="#0F2027" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <line x1="196" y1="64" x2="196" y2="72" stroke="#0F2027" stroke-width="6" stroke-linecap="round" />
+  <line x1="196" y1="118" x2="196" y2="126" stroke="#0F2027" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Droplet Top Triangular Facet -->
+  <path d="M 120 22 L 88 92 L 120 92 Z" fill="url(#dropletTeal)" />
+  <path d="M 120 22 L 120 92 L 152 92 Z" fill="#FFFFFF" />
+  <path d="M 88 94 L 120 20 L 152 94" stroke="#0F2027" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="120" y1="20" x2="120" y2="92" stroke="#0F2027" stroke-width="4" />
+
+  <!-- Droplet Lower Bulb -->
+  <path d="M 76 96 C 76 138 95 166 120 166 C 145 166 164 138 164 96 Z" fill="url(#dropletTeal)" stroke="#0F2027" stroke-width="7.5" stroke-linejoin="round" />
+  <path d="M 89 122 C 87 136 96 149 110 152" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" />
+  <path d="M 120 108 C 138 108 152 115 158 122 C 158 110 148 104 135 104 Z" fill="#FFFFFF" />
+
+  <!-- Sensor Strip Box -->
+  <rect x="64" y="85" width="112" height="20" rx="2" fill="#0F2027" stroke="#0F2027" stroke-width="2" />
+  <rect x="68" y="89" width="104" height="12" rx="1" fill="url(#sensorTrackGrad)" />
+  <line x1="70" y1="95" x2="170" y2="95" stroke="#E0F2FE" stroke-width="1.2" opacity="0.8" />
+
+  <!-- Center Glowing Sensor Node -->
+  <circle cx="120" cy="95" r="11" fill="#38BDF8" opacity="0.45" filter="url(#sensorGlow)" />
+  <circle cx="120" cy="95" r="7" fill="#67E8F9" opacity="0.85" />
+  <circle cx="120" cy="95" r="4" fill="#FFFFFF" />
+</svg>

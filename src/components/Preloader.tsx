@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Droplet, Cpu, ShieldCheck } from 'lucide-react';
+import { Cpu, ShieldCheck } from 'lucide-react';
+import { SeeporaLogo } from './SeeporaLogo';
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -111,13 +112,13 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
             />
           </svg>
 
-          {/* Center Pipeline Icon & Droplet Pulse */}
-          <div className="relative z-10 w-16 h-16 rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center shadow-xl shadow-blue-950/50">
-            <div className="relative">
-              <Droplet className="w-8 h-8 text-blue-400 fill-blue-500/20" />
+          {/* Center Official Seepora Logo & Subtle Pulse */}
+          <div className="relative z-10 w-20 h-20 rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center shadow-xl shadow-cyan-950/50 p-2">
+            <div className="relative flex items-center justify-center">
+              <SeeporaLogo className="w-14 h-14" />
               <div
-                className="absolute inset-0 w-8 h-8 rounded-full bg-blue-400 blur-md opacity-40 animate-ping"
-                style={{ animationDuration: '2s' }}
+                className="absolute inset-0 rounded-full bg-cyan-400 blur-md opacity-25 animate-ping pointer-events-none"
+                style={{ animationDuration: '2.5s' }}
               />
             </div>
           </div>

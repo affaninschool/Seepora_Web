@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PageTab } from '../types';
-import { Droplet, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { SeeporaLogo } from './SeeporaLogo';
 
 interface NavbarProps {
   activeTab: PageTab;
@@ -32,11 +33,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange }) => {
           {/* Zone 1: Single element brand wordmark */}
           <button
             onClick={() => handleSelect('home')}
-            className="flex items-center gap-2.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-md py-1"
+            className="flex items-center gap-2.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-md py-1 cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white shadow-sm">
-              <Droplet className="w-4 h-4 fill-white text-white" />
-            </div>
+            <SeeporaLogo className="w-9 h-9 shrink-0" />
             <span className="text-xl font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0">
               SEEPORA
             </span>

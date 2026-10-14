@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageTab } from '../types';
-import { Droplet, ExternalLink, ShieldAlert, Cpu } from 'lucide-react';
+import { ExternalLink, ShieldAlert, Cpu } from 'lucide-react';
+import { SeeporaLogo } from './SeeporaLogo';
 
 interface FooterProps {
   onTabChange: (tab: PageTab) => void;
@@ -14,9 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ onTabChange }) => {
           {/* Brand & mission */}
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-md bg-blue-600 flex items-center justify-center text-white">
-                <Droplet className="w-3.5 h-3.5 fill-white text-white" />
-              </div>
+              <SeeporaLogo className="w-8 h-8 shrink-0" />
               <span className="text-lg font-bold tracking-tight text-white">SEEPORA</span>
             </div>
             <p className="text-xs text-slate-300 font-medium">
