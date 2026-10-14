@@ -47,18 +47,21 @@ export default function App() {
       {/* Creative Engineering Preloader */}
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
 
-      <Navbar activeTab={activeTab} onTabChange={handleTabChange} />
+      {/* Main website layout - hidden while preloader is running */}
+      <div className={`flex flex-col min-h-screen transition-opacity duration-300 ${isLoading ? 'invisible opacity-0 pointer-events-none' : 'visible opacity-100'}`}>
+        <Navbar activeTab={activeTab} onTabChange={handleTabChange} />
 
-      <main className="flex-1">
-        {activeTab === 'home' && <HomeView onTabChange={handleTabChange} />}
-        {activeTab === 'how-it-works' && <HowItWorksView />}
-        {activeTab === 'dashboard' && <DashboardView />}
-        {activeTab === 'lab' && <InteractiveLabView />}
-        {activeTab === 'research' && <ResearchView />}
-        {activeTab === 'team' && <TeamView />}
-      </main>
+        <main className="flex-1">
+          {activeTab === 'home' && <HomeView onTabChange={handleTabChange} />}
+          {activeTab === 'how-it-works' && <HowItWorksView />}
+          {activeTab === 'dashboard' && <DashboardView />}
+          {activeTab === 'lab' && <InteractiveLabView />}
+          {activeTab === 'research' && <ResearchView />}
+          {activeTab === 'team' && <TeamView />}
+        </main>
 
-      <Footer onTabChange={handleTabChange} />
+        <Footer onTabChange={handleTabChange} />
+      </div>
     </div>
   );
 }

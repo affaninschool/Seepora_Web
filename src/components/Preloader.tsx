@@ -42,6 +42,24 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
     return () => clearInterval(interval);
   }, [onComplete]);
 
+  // Lock body scroll and listen for ESC key while preloader is active
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleSkip();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const handleSkip = () => {
     setIsFadingOut(true);
     setTimeout(() => {
@@ -51,7 +69,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950 text-white transition-opacity duration-500 select-none ${
+      className={`fixed inset-0 z-[99999] w-screen h-screen flex flex-col items-center justify-center bg-slate-950 text-white transition-opacity duration-500 select-none overflow-hidden ${
         isFadingOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
