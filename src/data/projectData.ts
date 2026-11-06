@@ -18,7 +18,7 @@ export const PROJECT_METADATA = {
       'In our school, the main riser pipe feeding the drinking water coolers and washrooms runs along the outer brick corridor wall. One semester, a joint hairline crack went unnoticed behind a concrete pillar for weeks. We only realized it when the corridor floor became dangerously slick with green algae, the wall paint bubbled with mould, and the second-floor water cooler ran dry during peak recess. Thousands of liters of purified drinking water were wasted into the ground. Traditional acoustic leak detectors cost lakhs of rupees that our school cannot afford, and plastic pipes muffle sound anyway. That inspired me to build SEEPORA: a simple, affordable sensor strip that catches the first drop the moment it seeps out.'
   },
   mentor: {
-    name: 'Dr. Rajesh Sharma',
+    name: 'Sandip Dutta',
     title: 'Head of Applied Sciences & Faculty Mentor',
     institution: 'Department of Science & Innovation, Delhi Public School',
     roleDescription: 'Advisory guidance on circuit breadboarding, physical measurement protocols, and experimental error analysis.'

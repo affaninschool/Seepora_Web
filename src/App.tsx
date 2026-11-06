@@ -8,12 +8,14 @@ import { PageTab } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Preloader } from './components/Preloader';
+import { TwoMinuteTourModal } from './components/TwoMinuteTourModal';
+import { InstallAppModal } from './components/InstallAppModal';
+import { SevaFirstBriefModal } from './components/SevaFirstBriefModal';
 import { HomeView } from './pages/HomeView';
 import { HardwareView } from './pages/HardwareView';
 import { CostView } from './pages/CostView';
 import { PilotView } from './pages/PilotView';
 import { HowItWorksView } from './pages/HowItWorksView';
-import { DashboardView } from './pages/DashboardView';
 import { InteractiveLabView } from './pages/InteractiveLabView';
 import { ResearchView } from './pages/ResearchView';
 import { AboutView } from './pages/AboutView';
@@ -21,6 +23,9 @@ import { AboutView } from './pages/AboutView';
 export default function App() {
   const [activeTab, setActiveTab] = useState<PageTab>('home');
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isTourOpen, setIsTourOpen] = useState<boolean>(false);
+  const [isInstallAppOpen, setIsInstallAppOpen] = useState<boolean>(false);
+  const [isBriefOpen, setIsBriefOpen] = useState<boolean>(false);
 
   // Sync hash routing if present
   useEffect(() => {
@@ -31,7 +36,6 @@ export default function App() {
       'pilot',
       'research',
       'lab',
-      'dashboard',
       'about',
       'team',
       'how-it-works'
@@ -65,15 +69,25 @@ export default function App() {
 
       {/* Main website layout - hidden while preloader is running */}
       <div className={`flex flex-col min-h-screen transition-opacity duration-300 ${isLoading ? 'invisible opacity-0 pointer-events-none' : 'visible opacity-100'}`}>
-        <Navbar activeTab={activeTab} onTabChange={handleTabChange} />
+        <Navbar
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
+          onOpenInstallApp={() => setIsInstallAppOpen(true)}
+          onOpenTour={() => setIsTourOpen(true)}
+        />
 
         <main className="flex-1">
-          {activeTab === 'home' && <HomeView onTabChange={handleTabChange} />}
+          {activeTab === 'home' && (
+            <HomeView
+              onTabChange={handleTabChange}
+              onOpenTour={() => setIsTourOpen(true)}
+              onOpenInstallApp={() => setIsInstallAppOpen(true)}
+            />
+          )}
           {activeTab === 'hardware' && <HardwareView />}
           {activeTab === 'cost' && <CostView />}
           {activeTab === 'pilot' && <PilotView />}
           {activeTab === 'how-it-works' && <HowItWorksView />}
-          {activeTab === 'dashboard' && <DashboardView />}
           {activeTab === 'lab' && <InteractiveLabView />}
           {activeTab === 'research' && <ResearchView />}
           {(activeTab === 'about' || activeTab === 'team') && (
@@ -81,8 +95,30 @@ export default function App() {
           )}
         </main>
 
-        <Footer onTabChange={handleTabChange} />
+        <Footer
+          onTabChange={handleTabChange}
+          onOpenBrief={() => setIsBriefOpen(true)}
+          onOpenTour={() => setIsTourOpen(true)}
+          onOpenInstallApp={() => setIsInstallAppOpen(true)}
+        />
       </div>
+
+      {/* Interactive Modals */}
+      <TwoMinuteTourModal
+        isOpen={isTourOpen}
+        onClose={() => setIsTourOpen(false)}
+        onNavigateTab={handleTabChange}
+      />
+
+      <InstallAppModal
+        isOpen={isInstallAppOpen}
+        onClose={() => setIsInstallAppOpen(false)}
+      />
+
+      <SevaFirstBriefModal
+        isOpen={isBriefOpen}
+        onClose={() => setIsBriefOpen(false)}
+      />
     </div>
   );
 }

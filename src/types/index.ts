@@ -4,7 +4,6 @@ export type PageTab =
   | 'cost'
   | 'pilot'
   | 'lab'
-  | 'dashboard'
   | 'research'
   | 'about'
   | 'how-it-works'

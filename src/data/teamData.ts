@@ -48,7 +48,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
 
 export const MENTORS_AND_ADVISORS: MentorAcknowledgment[] = [
   {
-    name: 'Dr. Rajesh Sharma',
+    name: 'Sandip Dutta',
     title: 'Head of Applied Sciences & Faculty Mentor',
     institution: 'Department of Science & Innovation, Delhi Public School, R.K. Puram',
     guidanceArea: 'Advisory guidance on circuit breadboarding, physical measurement protocols, 10-bit ADC calibration, and experimental error analysis.'

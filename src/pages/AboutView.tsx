@@ -42,11 +42,11 @@ export const AboutView: React.FC<AboutViewProps> = ({ onTabChange }) => {
           About Project SEEPORA
         </h1>
         <p className="text-base text-slate-600 leading-relaxed">
-          SEEPORA was conceived, designed, and prototyped by high school student Affan Adil under the mentorship of Dr. Rajesh Sharma at Delhi Public School, R.K. Puram, as an entry for the Seva First Innovation Challenge.
+          SEEPORA was conceived, designed, and prototyped by high school student Affan Adil under the mentorship of Sandip Dutta at Delhi Public School, R.K. Puram, as an entry for the Seva First Innovation Challenge.
         </p>
       </div>
 
-      {/* 2. Key Personnel: Affan Adil & Dr. Rajesh Sharma (Side by Side) */}
+      {/* 2. Key Personnel: Affan Adil & Sandip Dutta (Side by Side) */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Student Innovator: Affan Adil */}
         <section className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col justify-between space-y-6">
@@ -100,7 +100,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onTabChange }) => {
           </div>
         </section>
 
-        {/* Faculty Mentor: Dr. Rajesh Sharma */}
+        {/* Faculty Mentor: Sandip Dutta */}
         <section className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col justify-between space-y-6">
           <div className="space-y-5">
             <div className="flex items-start justify-between gap-4 border-b border-slate-100 pb-5">
@@ -113,7 +113,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onTabChange }) => {
                     Faculty Mentor & Scientific Advisor
                   </div>
                   <h2 className="text-2xl font-bold text-slate-900">
-                    Dr. Rajesh Sharma
+                    Sandip Dutta
                   </h2>
                   <div className="text-xs sm:text-sm font-semibold text-blue-700 mt-0.5">
                     Head of Applied Sciences & Faculty Mentor
@@ -127,7 +127,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onTabChange }) => {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Dr. Rajesh Sharma supervises student research at Delhi Public School, R.K. Puram, guiding students in rigorous scientific methodologies, experimental controls, error propagation analysis, and ethical lab bench instrumentation.
+              Sandip Dutta supervises student research at Delhi Public School, R.K. Puram, guiding students in rigorous scientific methodologies, experimental controls, error propagation analysis, and ethical lab bench instrumentation.
             </p>
 
             <div className="space-y-2 pt-2">
@@ -188,7 +188,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onTabChange }) => {
             <strong>Affan Adil</strong> · Class 11, Delhi Public School, R.K. Puram
           </div>
           <div>
-            Faculty Mentor: <strong>Dr. Rajesh Sharma</strong>, Head of Applied Sciences
+            Faculty Mentor: <strong>Sandip Dutta</strong>, Head of Applied Sciences
           </div>
         </div>
       </section>
